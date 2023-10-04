@@ -1,12 +1,25 @@
-import java.util.Scanner;
+/**
+
+ * File: PhoneNumberCheck.java
+
+ * Author: Samuil Mladenov; Kaloyan Dimitrov; Diana Evtimova; Maxim Marshall, Stelyan Vasilev
+
+ * Date: 10/4/2023
+
+ */
+
+
+import java.util.Scanner; //import the scanner class
 
 public class PhoneNumberCheck {
     public static void main(String[] args) {
-        Scanner input =new Scanner(System.in);
+        Scanner input =new Scanner(System.in); //initiallize the scanner
 
         System.out.println("Enter phone number: ");
-        String num = input.nextLine();
+        String num = input.nextLine();                  //Ask the user for imput
 
+
+        //Logical check
         if (num.length() != 4) {
             System.out.println("Invalid phone number");
             System.exit(0);
@@ -18,6 +31,6 @@ public class PhoneNumberCheck {
         else {
             System.out.println("This number does not belong to a telemarketer. You should pick up.");
         }
-        input.close();
+        input.close(); //close the scanner
     }
 }
