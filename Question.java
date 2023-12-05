@@ -9,6 +9,9 @@ package GroupProject;
  * @author dianaevtimova
  */
 public class Question extends javax.swing.JFrame {
+    
+    private static int count = 0;
+    private static final int MAX = 10;
 
     /**
      * Creates new form Question
@@ -16,6 +19,7 @@ public class Question extends javax.swing.JFrame {
     public Question() {
         initComponents();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -143,14 +147,25 @@ public class Question extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void submit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submit_buttonActionPerformed
+        while (count <= MAX) {
         Question QuestionFrame = new Question();
         QuestionFrame.setVisible(true);
         QuestionFrame.pack();
          
         //Let the frame be displayed in the center
         QuestionFrame.setLocationRelativeTo(null);
-        
+        count++;
         this.dispose();
+        }
+        
+        if(count > MAX){
+            Result ResultFrame = new Result();
+            ResultFrame.setVisible(true);
+            ResultFrame.pack();
+            
+            ResultFrame.setLocationRelativeTo(null);
+            this.dispose();
+        }
     }//GEN-LAST:event_submit_buttonActionPerformed
 
     /**
