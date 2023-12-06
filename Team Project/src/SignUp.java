@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package registrationandlogin;
+package GroupProject;
 
 /**
  *
@@ -52,7 +52,8 @@ public class SignUp extends javax.swing.JFrame {
         LogoSide.setBackground(new java.awt.Color(255, 255, 255));
         LogoSide.setPreferredSize(new java.awt.Dimension(400, 500));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/dianaevtimova/Desktop/RegistrationAndLogin/src/Java_Icon/pngegg (1).png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/dianaevtimova/Desktop/GroupProject/src/Java_Icon/pngegg (1).png")); // NOI18N
+        jLabel1.setPreferredSize(new java.awt.Dimension(400, 500));
 
         javax.swing.GroupLayout LogoSideLayout = new javax.swing.GroupLayout(LogoSide);
         LogoSide.setLayout(LogoSideLayout);
@@ -60,8 +61,8 @@ public class SignUp extends javax.swing.JFrame {
             LogoSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LogoSideLayout.createSequentialGroup()
                 .addGap(48, 48, 48)
-                .addComponent(jLabel1)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         LogoSideLayout.setVerticalGroup(
             LogoSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,6 +102,11 @@ public class SignUp extends javax.swing.JFrame {
         signup_button.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         signup_button.setForeground(new java.awt.Color(50, 91, 110));
         signup_button.setText("Sign Up");
+        signup_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signup_buttonActionPerformed(evt);
+            }
+        });
 
         login_button.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         login_button.setForeground(new java.awt.Color(50, 91, 110));
@@ -201,6 +207,18 @@ public class SignUp extends javax.swing.JFrame {
         
         this.dispose();
     }//GEN-LAST:event_login_buttonActionPerformed
+
+    private void signup_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signup_buttonActionPerformed
+        // TODO add your handling code here:
+        Difficulty DifficultyFrame = new Difficulty();
+        DifficultyFrame.setVisible(true);
+        DifficultyFrame.pack();
+         
+        //Let the frame be displayed in the center
+        DifficultyFrame.setLocationRelativeTo(null);
+        
+        this.dispose();
+    }//GEN-LAST:event_signup_buttonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

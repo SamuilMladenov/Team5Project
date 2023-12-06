@@ -1,4 +1,4 @@
-package registrationandlogin;
+package GroupProject;
 
 public class RegistrationAndLogin {
 

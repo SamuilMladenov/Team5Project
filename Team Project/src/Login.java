@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package registrationandlogin;
+package GroupProject;
 
 /**
  *
@@ -40,8 +40,7 @@ public class Login extends javax.swing.JFrame {
         sigup_button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("LOGIN");
-        setPreferredSize(new java.awt.Dimension(800, 500));
+        setTitle("Login");
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 153));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 500));
@@ -50,7 +49,7 @@ public class Login extends javax.swing.JFrame {
         LogoSide.setBackground(new java.awt.Color(255, 255, 255));
         LogoSide.setPreferredSize(new java.awt.Dimension(400, 500));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/dianaevtimova/Desktop/RegistrationAndLogin/src/Java_Icon/pngegg (1).png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/dianaevtimova/Desktop/GroupProject/src/Java_Icon/pngegg (1).png")); // NOI18N
         jLabel1.setMaximumSize(new java.awt.Dimension(1246, 2272));
         jLabel1.setMinimumSize(new java.awt.Dimension(1246, 2272));
 
@@ -94,6 +93,11 @@ public class Login extends javax.swing.JFrame {
         login_button.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         login_button.setForeground(new java.awt.Color(50, 91, 110));
         login_button.setText("Login");
+        login_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                login_buttonActionPerformed(evt);
+            }
+        });
 
         noaccount.setFont(new java.awt.Font("Georgia", 2, 16)); // NOI18N
         noaccount.setText("You don't have an account?");
@@ -162,16 +166,14 @@ public class Login extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 116, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 122, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
-
-        getAccessibleContext().setAccessibleName("LOGIN");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -186,6 +188,18 @@ public class Login extends javax.swing.JFrame {
         
         this.dispose();
     }//GEN-LAST:event_sigup_buttonActionPerformed
+
+    private void login_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_buttonActionPerformed
+
+        Difficulty DifficultyFrame = new Difficulty();
+        DifficultyFrame.setVisible(true);
+        DifficultyFrame.pack();
+         
+        //Let the frame be displayed in the center
+        DifficultyFrame.setLocationRelativeTo(null);
+        
+        this.dispose();
+    }//GEN-LAST:event_login_buttonActionPerformed
 
     /**
      * @param args the command line arguments
