@@ -4,6 +4,8 @@
  */
 package GroupProject;
 
+import javax.swing.*;
+
 /**
  *
  * @author dianaevtimova
@@ -12,6 +14,10 @@ public class Question extends javax.swing.JFrame {
     
     private static int count = 0;
     private static final int MAX = 10;
+    private JRadioButton option1;
+    private JRadioButton option2;
+    private JRadioButton option3;
+    private JRadioButton option4;
 
     /**
      * Creates new form Question
@@ -19,7 +25,7 @@ public class Question extends javax.swing.JFrame {
     public Question() {
         initComponents();
     }
-    
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,7 +43,10 @@ public class Question extends javax.swing.JFrame {
         title = new javax.swing.JLabel();
         question = new javax.swing.JLabel();
         type = new javax.swing.JLabel();
-        answer = new javax.swing.JTextField();
+        option1 = new javax.swing.JRadioButton();
+        option2 = new javax.swing.JRadioButton();
+        option3 = new javax.swing.JRadioButton();
+        option4 = new javax.swing.JRadioButton();
         submit_button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -57,18 +66,18 @@ public class Question extends javax.swing.JFrame {
         javax.swing.GroupLayout CodeSideLayout = new javax.swing.GroupLayout(CodeSide);
         CodeSide.setLayout(CodeSideLayout);
         CodeSideLayout.setHorizontalGroup(
-            CodeSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CodeSideLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                CodeSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(CodeSideLayout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(40, Short.MAX_VALUE))
         );
         CodeSideLayout.setVerticalGroup(
-            CodeSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CodeSideLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                CodeSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(CodeSideLayout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         getContentPane().add(CodeSide);
@@ -87,13 +96,23 @@ public class Question extends javax.swing.JFrame {
 
         type.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
         type.setForeground(new java.awt.Color(50, 91, 110));
-        type.setText("Type your answer here:");
+        type.setText("Select the correct option:");
 
-        answer.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        option1.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        option1.setText("Option 1");
+
+        option2.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        option2.setText("Option 2");
+
+        option3.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        option3.setText("Option 3");
+
+        option4.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
+        option4.setText("Option 4");
 
         submit_button.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         submit_button.setForeground(new java.awt.Color(50, 91, 110));
-        submit_button.setText("Sumbit");
+        submit_button.setText("Submit");
         submit_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submit_buttonActionPerformed(evt);
@@ -103,41 +122,51 @@ public class Question extends javax.swing.JFrame {
         javax.swing.GroupLayout AnswerSideLayout = new javax.swing.GroupLayout(AnswerSide);
         AnswerSide.setLayout(AnswerSideLayout);
         AnswerSideLayout.setHorizontalGroup(
-            AnswerSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AnswerSideLayout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(type)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(answer, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(AnswerSideLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(question)
-                .addContainerGap(28, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AnswerSideLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(AnswerSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AnswerSideLayout.createSequentialGroup()
-                        .addComponent(submit_button, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(143, 143, 143))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AnswerSideLayout.createSequentialGroup()
-                        .addComponent(title)
-                        .addGap(115, 115, 115))))
+                AnswerSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(AnswerSideLayout.createSequentialGroup()
+                                .addGap(53, 53, 53)
+                                .addComponent(type)
+                                .addGap(18, 18, 18)
+                                .addGroup(AnswerSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(option1)
+                                        .addComponent(option2)
+                                        .addComponent(option3)
+                                        .addComponent(option4))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(AnswerSideLayout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addComponent(question)
+                                .addContainerGap(28, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AnswerSideLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(AnswerSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AnswerSideLayout.createSequentialGroup()
+                                                .addComponent(submit_button, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(143, 143, 143))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AnswerSideLayout.createSequentialGroup()
+                                                .addComponent(title)
+                                                .addGap(115, 115, 115))))
         );
         AnswerSideLayout.setVerticalGroup(
-            AnswerSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AnswerSideLayout.createSequentialGroup()
-                .addContainerGap(119, Short.MAX_VALUE)
-                .addComponent(title)
-                .addGap(18, 18, 18)
-                .addComponent(question, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
-                .addGroup(AnswerSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(answer, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(type))
-                .addGap(37, 37, 37)
-                .addComponent(submit_button, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(147, 147, 147))
+                AnswerSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(AnswerSideLayout.createSequentialGroup()
+                                .addContainerGap(119, Short.MAX_VALUE)
+                                .addComponent(title)
+                                .addGap(18, 18, 18)
+                                .addComponent(question, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(21, 21, 21)
+                                .addGroup(AnswerSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(type)
+                                        .addComponent(option1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(option2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(option3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(option4)
+                                .addGap(18, 18, 18)
+                                .addComponent(submit_button, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(147, 147, 147))
         );
 
         getContentPane().add(AnswerSide);
@@ -145,6 +174,7 @@ public class Question extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
 
     private void submit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submit_buttonActionPerformed
         while (count <= MAX) {

@@ -9,8 +9,8 @@ package GroupProject;
  * @author dianaevtimova
  */
 public class Result extends javax.swing.JFrame {
-    public int correctCount = 7; //change it
-    public int incorrectCount = 3; 
+    public int correctCount = 0; //change it
+    public int incorrectCount = 0;
     /**
      * Creates new form Result
      */
