@@ -52,23 +52,25 @@ public class Login extends javax.swing.JFrame {
         LogoSide.setBackground(new java.awt.Color(255, 255, 255));
         LogoSide.setPreferredSize(new java.awt.Dimension(400, 500));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("src/pngegg (1).png")); // NOI18N
-        jLabel1.setMaximumSize(new java.awt.Dimension(1246, 2272));
-        jLabel1.setMinimumSize(new java.awt.Dimension(1246, 2272));
+        jLabel1.setIcon(new javax.swing.ImageIcon("src/Java.png"));// NOI18N
+        jLabel1.setBounds(0, 0, 400, 500);
+        jLabel1.setHorizontalAlignment(SwingConstants.LEFT);
+        jLabel1.setVerticalAlignment(SwingConstants.TOP);
+        //jLabel1.setPreferredSize(new java.awt.Dimension(330, 400));
+        //jLabel1.setMaximumSize(new java.awt.Dimension(1246, 2272));
+        //jLabel1.setMinimumSize(new java.awt.Dimension(1246, 2272));
 
         javax.swing.GroupLayout LogoSideLayout = new javax.swing.GroupLayout(LogoSide);
         LogoSide.setLayout(LogoSideLayout);
         LogoSideLayout.setHorizontalGroup(
             LogoSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LogoSideLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(51, Short.MAX_VALUE))
         );
         LogoSideLayout.setVerticalGroup(
             LogoSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LogoSideLayout.createSequentialGroup()
-                .addGap(89, 89, 89)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(111, Short.MAX_VALUE))
         );

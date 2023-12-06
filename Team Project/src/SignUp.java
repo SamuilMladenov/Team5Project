@@ -4,6 +4,8 @@
  */
 package GroupProject;
 
+import javax.swing.*;
+
 /**
  *
  * @author dianaevtimova
@@ -52,23 +54,23 @@ public class SignUp extends javax.swing.JFrame {
         LogoSide.setBackground(new java.awt.Color(255, 255, 255));
         LogoSide.setPreferredSize(new java.awt.Dimension(400, 500));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("src/pngegg (1).png")); // NOI18N
-        jLabel1.setPreferredSize(new java.awt.Dimension(400, 500));
+        jLabel1.setIcon(new javax.swing.ImageIcon("src/Java.png")); // NOI18N
+        jLabel1.setBounds(0, 0, 400, 500);
+        jLabel1.setHorizontalAlignment(SwingConstants.LEFT);
+        jLabel1.setVerticalAlignment(SwingConstants.TOP);
 
         javax.swing.GroupLayout LogoSideLayout = new javax.swing.GroupLayout(LogoSide);
         LogoSide.setLayout(LogoSideLayout);
         LogoSideLayout.setHorizontalGroup(
             LogoSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LogoSideLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         LogoSideLayout.setVerticalGroup(
             LogoSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LogoSideLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(93, Short.MAX_VALUE))
         );
 
