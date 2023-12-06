@@ -52,7 +52,7 @@ public class SignUp extends javax.swing.JFrame {
         LogoSide.setBackground(new java.awt.Color(255, 255, 255));
         LogoSide.setPreferredSize(new java.awt.Dimension(400, 500));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/dianaevtimova/Desktop/GroupProject/src/Java_Icon/pngegg (1).png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("src/pngegg (1).png")); // NOI18N
         jLabel1.setPreferredSize(new java.awt.Dimension(400, 500));
 
         javax.swing.GroupLayout LogoSideLayout = new javax.swing.GroupLayout(LogoSide);
