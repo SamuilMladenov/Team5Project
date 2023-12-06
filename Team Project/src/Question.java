@@ -5,6 +5,9 @@
 package GroupProject;
 
 import javax.swing.*;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
@@ -12,18 +15,27 @@ import javax.swing.*;
  */
 public class Question extends javax.swing.JFrame {
     
-    private static int count = 0;
+    private int count;
     private static final int MAX = 10;
-    private JRadioButton option1;
-    private JRadioButton option2;
-    private JRadioButton option3;
-    private JRadioButton option4;
+    private int rightAnswers;
+    private int wrongAnswers;
+    private JButton option1;
+    private JButton option2;
+    private JButton option3;
+    private JButton option4;
+    private String correctAnswer;
 
     /**
      * Creates new form Question
      */
-    public Question() {
+    public Question(int rightAnswers, int wrongAnswers, int count) {
+        if (count >= MAX) {
+            dispose();
+        }
         initComponents();
+
+        setExtendedState(Frame.MAXIMIZED_BOTH);
+        setResizable(false);
     }
 
 
@@ -36,52 +48,41 @@ public class Question extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        CodeSide = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        code = new javax.swing.JTextArea();
+        //CodeSide = new javax.swing.JPanel();
         AnswerSide = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
         question = new javax.swing.JLabel();
         type = new javax.swing.JLabel();
-        option1 = new javax.swing.JRadioButton();
-        option2 = new javax.swing.JRadioButton();
-        option3 = new javax.swing.JRadioButton();
-        option4 = new javax.swing.JRadioButton();
-        submit_button = new javax.swing.JButton();
+        option1 = new javax.swing.JButton();
+        option2 = new javax.swing.JButton();
+        option3 = new javax.swing.JButton();
+        option4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
         setTitle("Question");
         setAutoRequestFocus(false);
-        setPreferredSize(new java.awt.Dimension(800, 500));
-        getContentPane().setLayout(null);
 
-        CodeSide.setBackground(new java.awt.Color(255, 255, 255));
-        CodeSide.setMinimumSize(new java.awt.Dimension(400, 500));
+        setLayout(new BorderLayout());
 
-        code.setBackground(new java.awt.Color(255, 231, 208));
-        code.setColumns(20);
-        code.setRows(5);
-        jScrollPane1.setViewportView(code);
+        QuestionAnswer currentQuestion = QuestionData.getRandomQuestion();
 
-        javax.swing.GroupLayout CodeSideLayout = new javax.swing.GroupLayout(CodeSide);
-        CodeSide.setLayout(CodeSideLayout);
-        CodeSideLayout.setHorizontalGroup(
-                CodeSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(CodeSideLayout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(40, Short.MAX_VALUE))
-        );
-        CodeSideLayout.setVerticalGroup(
-                CodeSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(CodeSideLayout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(41, Short.MAX_VALUE))
-        );
+        correctAnswer = currentQuestion.getrAnswer();
 
-        getContentPane().add(CodeSide);
-        CodeSide.setBounds(0, 0, 400, 500);
+        ArrayList<String> answers = new ArrayList<String>();
+        answers.add(currentQuestion.getrAnswer());
+        answers.add(currentQuestion.getwAnswer1());
+        answers.add(currentQuestion.getwAnswer2());
+        answers.add(currentQuestion.getwAnswer3());
+
+        Collections.shuffle(answers);
+
+        JLabel questionImage = new JLabel();
+        questionImage.setIcon(resizeImageIcon(currentQuestion.getImgPath()));
+        add(questionImage, BorderLayout.WEST);
+        //CodeSide.add(questionImage);
+
+        //getContentPane().add(CodeSide);
 
         AnswerSide.setBackground(new java.awt.Color(255, 204, 153));
         AnswerSide.setPreferredSize(new java.awt.Dimension(400, 500));
@@ -92,32 +93,28 @@ public class Question extends javax.swing.JFrame {
 
         question.setFont(new java.awt.Font("Georgia", 0, 22)); // NOI18N
         question.setForeground(new java.awt.Color(50, 91, 110));
-        question.setText("What will be the output of the code?");
+        question.setText(currentQuestion.getqText());
 
         type.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
         type.setForeground(new java.awt.Color(50, 91, 110));
         type.setText("Select the correct option:");
 
         option1.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
-        option1.setText("Option 1");
+        option1.setText(answers.get(0));
 
         option2.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
-        option2.setText("Option 2");
+        option2.setText(answers.get(1));
 
         option3.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
-        option3.setText("Option 3");
+        option3.setText(answers.get(2));
 
         option4.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
-        option4.setText("Option 4");
+        option4.setText(answers.get(3));
 
-        submit_button.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
-        submit_button.setForeground(new java.awt.Color(50, 91, 110));
-        submit_button.setText("Submit");
-        submit_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                submit_buttonActionPerformed(evt);
-            }
-        });
+        option1.addActionListener(e -> handleAnswer(option1));
+        option2.addActionListener(e -> handleAnswer(option2));
+        option3.addActionListener(e -> handleAnswer(option3));
+        option4.addActionListener(e -> handleAnswer(option4));
 
         javax.swing.GroupLayout AnswerSideLayout = new javax.swing.GroupLayout(AnswerSide);
         AnswerSide.setLayout(AnswerSideLayout);
@@ -141,7 +138,6 @@ public class Question extends javax.swing.JFrame {
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(AnswerSideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AnswerSideLayout.createSequentialGroup()
-                                                .addComponent(submit_button, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(143, 143, 143))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AnswerSideLayout.createSequentialGroup()
                                                 .addComponent(title)
@@ -165,7 +161,6 @@ public class Question extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(option4)
                                 .addGap(18, 18, 18)
-                                .addComponent(submit_button, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(147, 147, 147))
         );
 
@@ -175,28 +170,36 @@ public class Question extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private ImageIcon resizeImageIcon(String imagePath) {
+        ImageIcon originalIcon = new ImageIcon(imagePath);
+        Image originalImage = originalIcon.getImage();
 
-    private void submit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submit_buttonActionPerformed
-        while (count <= MAX) {
-        Question QuestionFrame = new Question();
-        QuestionFrame.setVisible(true);
-        QuestionFrame.pack();
-         
-        //Let the frame be displayed in the center
-        QuestionFrame.setLocationRelativeTo(null);
-        count++;
-        this.dispose();
+        int originalWidth = originalIcon.getIconWidth();
+        int originalHeight = originalIcon.getIconHeight();
+
+        double widthScale = (double) 600 / originalWidth;
+        double heightScale = (double) 600 / originalHeight;
+        double scale = Math.min(widthScale, heightScale);
+
+        int newWidth = (int) (originalWidth * scale);
+        int newHeight = (int) (originalHeight * scale);
+
+        Image resizedImage = originalImage.getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
+        return new ImageIcon(resizedImage);
+    }
+
+    private void handleAnswer(JButton selectedButton) {
+        if (selectedButton.getText().equals(correctAnswer)) {
+            dispose();
+            Question newQuestion = new Question(rightAnswers++, wrongAnswers, count++);
+            newQuestion.setVisible(true);
+        } else {
+            dispose();
+            Question newQuestion = new Question(rightAnswers, wrongAnswers++, count++);
+            newQuestion.setVisible(true);
         }
-        
-        if(count > MAX){
-            Result ResultFrame = new Result();
-            ResultFrame.setVisible(true);
-            ResultFrame.pack();
-            
-            ResultFrame.setLocationRelativeTo(null);
-            this.dispose();
-        }
-    }//GEN-LAST:event_submit_buttonActionPerformed
+    }
+
 
     /**
      * @param args the command line arguments
@@ -228,7 +231,7 @@ public class Question extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Question().setVisible(true);
+                new Question(0, 0, 0).setVisible(true);
             }
         });
     }
@@ -240,7 +243,6 @@ public class Question extends javax.swing.JFrame {
     private javax.swing.JTextArea code;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel question;
-    private javax.swing.JButton submit_button;
     private javax.swing.JLabel title;
     private javax.swing.JLabel type;
     // End of variables declaration//GEN-END:variables

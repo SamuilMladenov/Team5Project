@@ -126,7 +126,7 @@ public class Difficulty extends javax.swing.JFrame {
 
     private void beginner_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beginner_buttonActionPerformed
         // TODO add your handling code here:
-        Question QuestionFrame = new Question();
+        Question QuestionFrame = new Question(0, 0, 0);
         QuestionFrame.setVisible(true);
         QuestionFrame.pack();
          
@@ -137,7 +137,7 @@ public class Difficulty extends javax.swing.JFrame {
     }//GEN-LAST:event_beginner_buttonActionPerformed
 
     private void intermediate_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_intermediate_buttonActionPerformed
-        Question QuestionFrame = new Question();
+        Question QuestionFrame = new Question(0, 0, 0);
         QuestionFrame.setVisible(true);
         QuestionFrame.pack();
          
@@ -148,7 +148,7 @@ public class Difficulty extends javax.swing.JFrame {
     }//GEN-LAST:event_intermediate_buttonActionPerformed
 
     private void advanced_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_advanced_buttonActionPerformed
-        Question QuestionFrame = new Question();
+        Question QuestionFrame = new Question(0, 0, 0);
         QuestionFrame.setVisible(true);
         QuestionFrame.pack();
          
