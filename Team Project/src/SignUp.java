@@ -209,7 +209,15 @@ public class SignUp extends javax.swing.JFrame {
     }//GEN-LAST:event_login_buttonActionPerformed
 
     private void signup_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signup_buttonActionPerformed
-        // TODO add your handling code here:
+        String fullName = name_input.getText();
+        String enteredUsername = username_input.getText();
+        String enteredPassword = new String(password_input.getPassword());
+
+        // Hash the password (you need to implement a hashing method)
+        String hashedPassword = HashingUtil.hashPassword(enteredPassword);
+
+        User newUser = new User(enteredUsername, hashedPassword, 0);
+        CsvHandler.writeUser(newUser);
         Difficulty DifficultyFrame = new Difficulty();
         DifficultyFrame.setVisible(true);
         DifficultyFrame.pack();

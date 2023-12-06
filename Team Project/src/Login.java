@@ -4,6 +4,9 @@
  */
 package GroupProject;
 
+import javax.swing.*;
+import java.util.List;
+
 /**
  *
  * @author dianaevtimova
@@ -191,14 +194,28 @@ public class Login extends javax.swing.JFrame {
 
     private void login_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_buttonActionPerformed
 
-        Difficulty DifficultyFrame = new Difficulty();
-        DifficultyFrame.setVisible(true);
-        DifficultyFrame.pack();
-         
-        //Let the frame be displayed in the center
-        DifficultyFrame.setLocationRelativeTo(null);
-        
-        this.dispose();
+        String enteredUsername = username_input.getText();
+        String enteredPassword = new String(password_input.getPassword());
+
+        // Hash the entered password for comparison
+        String hashedPassword = HashingUtil.hashPassword(enteredPassword);
+
+        List<User> users = CsvHandler.readUsers();
+
+        for (User user : users) {
+            if (user.getUsername().equals(enteredUsername) && user.getHashedPassword().equals(hashedPassword)) {
+                // User found, proceed with login
+                Difficulty DifficultyFrame = new Difficulty();
+                DifficultyFrame.setVisible(true);
+                DifficultyFrame.pack();
+                DifficultyFrame.setLocationRelativeTo(null);
+                this.dispose();
+                return;
+            }
+        }
+
+        // Display a message that the user doesn't exist
+        JOptionPane.showMessageDialog(this, "User doesn't exist", "Login Error", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_login_buttonActionPerformed
 
     /**
