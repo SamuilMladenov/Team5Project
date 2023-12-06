@@ -1,8 +1,8 @@
-# Project Title: {Insert name}
+# Project Title: Javaquizzy
 
 ## Project Description
 
-The {Insert name} is an interactive quiz application designed to test and enhance your Java programming knowledge. Users can engage with a series of coding challenges by answering multiple-choice questions, and reviewing their mistakes in the Java code snippets.
+The Javaquizzy is an interactive quiz application designed to test and enhance your Java programming knowledge. Users can engage with a series of coding challenges by answering multiple-choice questions, and reviewing their mistakes in the Java code snippets.
 
 ## What Your Application Does
 
